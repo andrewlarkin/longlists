@@ -1,0 +1,27 @@
+.ui-menu-item {
+	padding:0;
+	text-indent:0px;
+	z-index:2;
+}
+.ui-corner-all {
+	background:#EEE;
+	font:10pt Arial;
+	padding:3px;
+	display:block;
+	margin:0;
+}
+.ui-state-hover {
+	border:0;
+	background:#239;
+	color:#FFF;
+	box-shadow:inset 0 0 10px #005;
+	text-shadow:none;
+}
+input,select {
+	width:230px;
+}
+.ui-autocomplete.ui-menu {
+	list-style:none;
+	padding:0;
+	width:230px;
+}
