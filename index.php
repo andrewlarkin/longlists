@@ -23,6 +23,7 @@
 		<title>Timing Example</title>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.8.23/jquery-ui.min.js"></script>
+		<script src="generate.js"></script>
 		<script src="timing.js"></script>
 		<script>
 			function showTimes0() {
@@ -40,6 +41,12 @@
 		</script>
     <link rel="stylesheet" href="style.css" type="text/css">
 		<style>
+			body {
+				background:#DDD;
+				font-family:Georgia;
+				text-shadow:0 1px 0 #FFF;
+				padding:0 10px;
+			}
 			#results td {
 				padding:10px;
 				border:1px solid #000;
@@ -47,13 +54,13 @@
 		</style>
 	</head>
 	<body onLoad="setTimers()">
-		<form>
+		<form onSubmit="return false">
 			<h1>Thank you for your participation!</h1>
 			<!--<p>Type: <?=$type ?></p>-->
 			<p>Just a few questions to get started,</p>
 			<p>Please select your birthday: <? insertForm(array('January','February','March','April','May','June','July','August','September','October','November','December')); ?><? insertForm(range(1,31)); ?><? insertForm(range(1900,1996)); ?></p>
 			<p>What country do you live in? <? insertForm($countries) ?></p>
-			<p>What's your favorite season? <? insertForm(array('Winter','Spring','Summer','Fall')) ?></p>
+			<p>What's your favorite season? <script>insertForm(['Winter','Spring','Summer','Fall'])</script></p>
 			<button onClick="showTimes<?=$type ?>();return false;">Show Times</button><br><br>
 		</form>
 		<table id="results" display="none" margin="auto"></table>
