@@ -7,21 +7,22 @@
 		<title>Timing Example</title>
 		<script src="jquery/core.js"></script>
 		<script src="jquery/ui.js"></script>
+		<script src="collector.js"></script>
 		<script src="generate.js"></script>
 		<script src="timing.js"></script>
 		<script>
 			function showTimes() {
-                switch(type) {
+                switch(collector.type) {
                     case DROPDOWN:
                         $("#results").css({display:'table'}).html('');
                         $(".select,.autocomplete").each(function(i) {
-                            $("#results").append('<tr><td>'+this.options[this.selectedIndex].value+'</td><td>'+total[i]+' ms</td><td>'+this.options.length+' options</td>');
+                            $("#results").append('<tr><td>'+this.options[this.selectedIndex].value+'</td><td>'+collector.total[i]+' ms</td><td>'+this.options.length+' options</td>');
                         });
                         break;
                     case AUTOCOMPLETE:
                         $("#results").css({display:'table'}).html('');
                         $(".select,.autocomplete").each(function(i) {
-                            $("#results").append('<tr><td>'+this.value+'</td><td>'+total[i]+' ms</td>');
+                            $("#results").append('<tr><td>'+this.value+'</td><td>'+collector.total[i]+' ms</td>');
                         });
                         break;
                 }
@@ -41,7 +42,7 @@
 			}
 		</style>
 	</head>
-	<body onLoad="setTimers()">
+	<body onLoad="collector.setTimers()">
         <div class="consent">
             
         </div>
@@ -49,12 +50,12 @@
 			<h1>Thank you for your participation!</h1>
 			<!--<p>Type: <?=$type ?></p>-->
 			<p>Just a few questions to get started:</p>
-			<p>Please select your birthday: <script>insertForm('month', ['January','February','March','April','May','June','July','August','September','October','November','December']); insertForm('day', range(1,31)); insertForm('year', range(1900,1996));</script></p>
-			<p>What country do you live in? <script>insertForm('country', ['<?=implode("','", $countries) ?>']);</script></p>
-			<p>What's your favorite season? <script>insertForm('season', ['Winter','Spring','Summer','Fall'])</script></p>
+			<p>Please select your birthday: <script>collector.insert('month', ['January','February','March','April','May','June','July','August','September','October','November','December']); collector.insert('day', range(1,31)); collector.insert('year', range(1900,1996));</script></p>
+			<p>What country do you live in? <script>collector.insert('country', ['<?=implode("','", $countries) ?>']);</script></p>
+			<p>What's your favorite season? <script>collector.insert('season', ['Winter','Spring','Summer','Fall'])</script></p>
 			<input type="submit"><br><br>
-            <button onClick="showTimes();return false;">Show Times</button><br><br>
 		</form>
+        <button onClick="showTimes()">Show Times</button><br><br>
 		<table id="results" display="none" margin="auto"></table>
 	</body>
 <?php ?>
