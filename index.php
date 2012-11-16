@@ -5,8 +5,8 @@
 ?>
 	<head>
 		<title>Timing Example</title>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.8.23/jquery-ui.min.js"></script>
+		<script src="jquery/core.js"></script>
+		<script src="jquery/ui.js"></script>
 		<script src="generate.js"></script>
 		<script src="timing.js"></script>
 		<script>
