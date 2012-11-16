@@ -12,13 +12,13 @@
 		<script>
 			function showTimes() {
                 switch(type) {
-                    case 0:
+                    case DROPDOWN:
                         $("#results").css({display:'table'}).html('');
                         $(".select,.autocomplete").each(function(i) {
                             $("#results").append('<tr><td>'+this.options[this.selectedIndex].value+'</td><td>'+total[i]+' ms</td><td>'+this.options.length+' options</td>');
                         });
                         break;
-                    case 1:
+                    case AUTOCOMPLETE:
                         $("#results").css({display:'table'}).html('');
                         $(".select,.autocomplete").each(function(i) {
                             $("#results").append('<tr><td>'+this.value+'</td><td>'+total[i]+' ms</td>');
@@ -42,14 +42,18 @@
 		</style>
 	</head>
 	<body onLoad="setTimers()">
-		<form onSubmit="return false">
+        <div class="consent">
+            
+        </div>
+		<form method="POST" action="var_dump.php">
 			<h1>Thank you for your participation!</h1>
 			<!--<p>Type: <?=$type ?></p>-->
 			<p>Just a few questions to get started:</p>
-			<p>Please select your birthday: <script>insertForm(['January','February','March','April','May','June','July','August','September','October','November','December']); insertForm(range(1,31)); insertForm(range(1900,1996));</script></p>
-			<p>What country do you live in? <script>insertForm(['<?=implode("','", $countries) ?>']);</script></p>
-			<p>What's your favorite season? <script>insertForm(['Winter','Spring','Summer','Fall'])</script></p>
-			<button onClick="showTimes();return false;">Show Times</button><br><br>
+			<p>Please select your birthday: <script>insertForm('month', ['January','February','March','April','May','June','July','August','September','October','November','December']); insertForm('day', range(1,31)); insertForm('year', range(1900,1996));</script></p>
+			<p>What country do you live in? <script>insertForm('country', ['<?=implode("','", $countries) ?>']);</script></p>
+			<p>What's your favorite season? <script>insertForm('season', ['Winter','Spring','Summer','Fall'])</script></p>
+			<input type="submit"><br><br>
+            <button onClick="showTimes();return false;">Show Times</button><br><br>
 		</form>
 		<table id="results" display="none" margin="auto"></table>
 	</body>
