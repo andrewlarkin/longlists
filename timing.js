@@ -41,7 +41,7 @@ collector.setTimers = function() {
 				collector.total[i] += ((new Date).getTime())-collector.time[i];
 				collector.time[i] = -1;
 				console.log('stop');
-			} else { // if backspace
+			} else if(event.which == 8 || event.which == 46){ // backspace OR delete
 				collector.error[i]++;
 				// on submission, divide error/str length and * by time for error time
 			}

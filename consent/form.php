@@ -95,9 +95,8 @@
 		<p>This form explains the nature, demands, benefits and any risk of the project.  By signing this form you agree knowingly to assume any risks involved.  Remember, your participation is voluntary.  You may choose not to participate or to withdraw your consent and discontinue participation at any time without penalty or loss of benefit.  In signing this consent form, you are not waiving any legal claims, rights, or remedies.  A copy of this consent form will be given (offered) to you.</p>
 
 		<p>Your signature below indicates that you consent to participate in the above study.</p>
-        <form>
+        <form action="save.php" method="POST">
             <p>Subject's Signature: <input class="sig" name="name" type="text"> Email: <input name="email" type="email"> Date: <u><?=date("m/d/Y") ?></u></p>
-
             <p>Legal Authorized Representative (if applicable): <input name="legalname" type="text"> Email: <input name="legalemail" type="email"></p>
             <br><br>
             <input type="submit" value="I Give My Consent">
