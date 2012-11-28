@@ -39,9 +39,12 @@
                 font-size:12pt;
                 padding:2px 10px;
             }
-            .sig {
-                font:32pt 'Tangerine',cursive;
+            input.sig {
+                font-family:'Tangerine',cursive;
+                font-size:32pt;
                 height:50px;
+                width:300px;
+                padding:6px 2px 2px 2px;
             }
             input[type=submit] {
                 display:block;
