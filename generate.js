@@ -9,6 +9,7 @@ collector.insert = function(name, list) {
 		document.write('</select> \n');
   } else if(this.type == AUTOCOMPLETE) { // AUTO-COMPLETE
 		document.write('<input name="'+name+'" class="autocomplete" id="form'+form+'"> ');
+		console.log(list);
 		$("#form"+form).autocomplete({source:list});
 	}
 	form++;
@@ -18,6 +19,6 @@ collector.insert = function(name, list) {
 			
 function range(start, end) {
 	var arr = [start];
-	while(start < end) arr.push(++start);
+	while(start < end) arr.push((++start)+"");
 	return arr;
 }
