@@ -29,11 +29,11 @@ function Collector() {
         complete: function(d,s) {
           console.log(s);
           console.log(d.responseText);
-          return false;
         },
         dataType: 'json',
         async:false
       });
+      //return false;
     });
     this.hijacked = true;
   };
